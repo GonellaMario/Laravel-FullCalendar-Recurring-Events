@@ -47,7 +47,7 @@
                             {{ trans('cruds.event.fields.recurrence') }}
                         </th>
                         <td>
-                            {{ App\Event::RECURRENCE_RADIO[$event->recurrence] ?? '' }}
+                            {{ App\Models\Event::RECURRENCE_RADIO[$event->recurrence] ?? '' }}
                         </td>
                     </tr>
                     <tr>

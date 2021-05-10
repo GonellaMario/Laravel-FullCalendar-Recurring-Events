@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Event;
-use App\Observers\RecurrenceObserver;
+use App\Models\Event;
+use App\Providers\RecurrenceObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

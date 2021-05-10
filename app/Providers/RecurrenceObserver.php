@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Observers;
+namespace App\Providers;
 
-use App\Event;
+use App\Models\Event;
 use Carbon\Carbon;
 
 class RecurrenceObserver
@@ -10,7 +10,7 @@ class RecurrenceObserver
     /**
      * Handle the event "created" event.
      *
-     * @param  \App\Event  $event
+     * @param  \App\Models\Event  $event
      * @return void
      */
     public static function created(Event $event)
@@ -53,7 +53,7 @@ class RecurrenceObserver
     /**
      * Handle the event "updated" event.
      *
-     * @param  \App\Event  $event
+     * @param  \App\Models\Event  $event
      * @return void
      */
     public function updated(Event $event)
@@ -86,7 +86,7 @@ class RecurrenceObserver
     /**
      * Handle the event "deleted" event.
      *
-     * @param  \App\Event  $event
+     * @param  \App\Models\Event  $event
      * @return void
      */
     public function deleted(Event $event)
@@ -97,7 +97,7 @@ class RecurrenceObserver
             $events = $event->event->events()->whereDate('start_time', '>', $event->start_time)->pluck('id');
         else
             $events = [];
-        
+
             Event::whereIn('id', $events)->delete();
     }
 }

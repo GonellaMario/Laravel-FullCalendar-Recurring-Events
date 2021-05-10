@@ -47,7 +47,7 @@
             </div>
             <div class="form-group {{ $errors->has('recurrence') ? 'has-error' : '' }}">
                 <label>{{ trans('cruds.event.fields.recurrence') }}*</label>
-                @foreach(App\Event::RECURRENCE_RADIO as $key => $label)
+                @foreach(App\Models\Event::RECURRENCE_RADIO as $key => $label)
                     <div>
                         <input id="recurrence_{{ $key }}" name="recurrence" type="radio" value="{{ $key }}" {{ old('recurrence', 'none') === (string)$key ? 'checked' : '' }} required>
                         <label for="recurrence_{{ $key }}">{{ $label }}</label>
